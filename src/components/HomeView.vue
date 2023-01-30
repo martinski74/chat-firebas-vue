@@ -95,6 +95,8 @@ export default {
 
 <style lang="scss">
 .view {
+  width: 44%;
+  margin: auto;
   display: flex;
   justify-content: center;
   min-height: 100vh;
