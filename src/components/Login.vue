@@ -27,9 +27,11 @@ export default {
     const router = useRouter();
 
     const Login = () => {
-      if (inputUsername.value != "" || inputUsername.value != null) {
+      if (inputUsername.value != "" && inputUsername.value != null) {
         store.dispatch("setUser", inputUsername.value);
         router.replace("/home");
+      } else {
+        alert("Please enter username");
       }
     };
 

@@ -45,10 +45,6 @@ export default {
     const store = useStore();
     const router = useRouter();
     const inputMessage = ref("");
-    const state = reactive({
-      username: "",
-      messages: [],
-    });
 
     const Logout = () => {
       store.username = "";
@@ -67,7 +63,6 @@ export default {
       inputMessage.value = "";
     };
     onMounted(() => {
-      console.log(store.state.username);
       const messagesRef = db.database().ref("messages");
       messagesRef.on("value", (snapshot) => {
         const data = snapshot.val();
@@ -84,7 +79,7 @@ export default {
     });
     return {
       store,
-      state,
+
       inputMessage,
       handleSubmit,
       Logout,
