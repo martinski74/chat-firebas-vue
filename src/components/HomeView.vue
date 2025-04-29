@@ -5,7 +5,7 @@
       <h1>Welcome, {{ store.state.username }}</h1>
     </header>
 
-    <section class="chat-box">
+    <section class="chat-box" ref="messageBody">
       <div
         v-for="message in store.state.messages"
         :key="message.key"
@@ -36,23 +36,24 @@
 </template>
 
 <script>
-import { reactive, onMounted, ref } from "vue";
-import { useStore } from "vuex";
-import { useRouter } from "vue-router";
-import db from "./../db";
+import { reactive, onMounted, ref, watch, nextTick } from 'vue';
+import { useStore } from 'vuex';
+import { useRouter } from 'vue-router';
+import db from './../db';
 export default {
   setup() {
     const store = useStore();
     const router = useRouter();
-    const inputMessage = ref("");
+    const inputMessage = ref('');
+    const messageBody = ref(null);
 
     const Logout = () => {
-      store.username = "";
-      router.replace("/login");
+      store.username = '';
+      router.replace('/login');
     };
     const handleSubmit = () => {
-      const messagesRef = db.database().ref("messages");
-      if (inputMessage.value === "" || inputMessage.value === null) {
+      const messagesRef = db.database().ref('messages');
+      if (inputMessage.value === '' || inputMessage.value === null) {
         return;
       }
       const message = {
@@ -60,11 +61,22 @@ export default {
         content: inputMessage.value,
       };
       messagesRef.push(message);
-      inputMessage.value = "";
+      inputMessage.value = '';
     };
+    watch(
+      store.state.messages.length,
+      () => {
+        nextTick(() => {
+          if (messageBody.value) {
+            messageBody.value.scrollTop = messageBody.value.scrollHeight;
+          }
+        });
+      },
+      { deep: true, immediate: true }
+    );
     onMounted(() => {
-      const messagesRef = db.database().ref("messages");
-      messagesRef.on("value", (snapshot) => {
+      const messagesRef = db.database().ref('messages');
+      messagesRef.on('value', (snapshot) => {
         const data = snapshot.val();
         let messages = [];
         Object.keys(data).forEach((key) => {
@@ -75,11 +87,18 @@ export default {
           });
         });
         store.state.messages = messages;
+
+        setTimeout(() => {
+          if (messageBody.value) {
+            messageBody.value.scrollTop = messageBody.value.scrollHeight;
+          }
+        }, 200);
       });
     });
+
     return {
       store,
-
+      messageBody,
       inputMessage,
       handleSubmit,
       Logout,
@@ -129,6 +148,7 @@ export default {
       flex: 1 1 100%;
       padding: 30px;
       overflow-y: scroll;
+      scroll-behavior: smooth;
       max-height: 676px;
       .message {
         display: flex;
@@ -176,7 +196,7 @@ export default {
       box-shadow: 0px 0px 12px rgba(100, 100, 100, 0.2);
       form {
         display: flex;
-        input[type="text"] {
+        input[type='text'] {
           flex: 1 1 100%;
           appearance: none;
           border: none;
@@ -198,7 +218,7 @@ export default {
           }
         }
 
-        input[type="submit"] {
+        input[type='submit'] {
           appearance: none;
           border: none;
           outline: none;
