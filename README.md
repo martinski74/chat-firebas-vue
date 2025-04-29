@@ -18,6 +18,6 @@ npm run serve
 npm build
 ```
 
-### Customize configuration
+### App Demo
 
 Open app here [Chat](https://firechat-vue-86f94.firebaseapp.com/).
