@@ -1,19 +1,23 @@
 # chat-firebase-vue
 
 ## Project setup
+
 ```
 yarn install
 ```
 
 ### Compiles and hot-reloads for development
+
 ```
 yarn serve
 ```
 
 ### Compiles and minifies for production
+
 ```
 yarn build
 ```
 
 ### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+
+Open app here [Chat](https://firechat-vue-86f94.firebaseapp.com/).
