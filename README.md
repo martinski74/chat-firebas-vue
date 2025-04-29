@@ -1,5 +1,7 @@
 # chat-firebase-vue
 
+## Open the app in two or more tabs and have fun chatting
+
 ## Project setup
 
 ```
