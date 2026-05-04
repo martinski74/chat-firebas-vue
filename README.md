@@ -1,25 +1,54 @@
-# chat-firebase-vue
+# Chat Firebase Vue
 
-### Open the app in two or more tabs(with your friends) and have fun chatting :)
+A simple real-time chat application built with Vue 3 and Firebase.
 
-## Project setup
+Open the app in two or more tabs (or with friends) and start chatting instantly.
 
-```
+## Live Demo
+
+Try it here: [firechat-vue-86f94.firebaseapp.com](https://firechat-vue-86f94.firebaseapp.com/)
+
+## Features
+
+- Real-time messaging with Firebase
+- Built with Vue 3
+- State management with Vuex
+- Routing with Vue Router
+- Fast local development with Vue CLI
+
+## Tech Stack
+
+- Vue 3
+- Firebase
+- Vue Router
+- Vuex
+- Sass
+
+## Getting Started
+
+### Prerequisites
+
+- Node.js (LTS recommended)
+- npm
+
+### Installation
+
+```bash
 npm install
 ```
 
-### Compiles and hot-reloads for development
+### Run in Development
 
-```
+```bash
 npm run serve
 ```
 
-### Compiles and minifies for production
+### Build for Production
 
+```bash
+npm run build
 ```
-npm build
-```
 
-### App Demo
+## Project Goal
 
-Open app here [CHAT](https://firechat-vue-86f94.firebaseapp.com/).
+This project is a lightweight demo of a Firebase-powered chat experience using the Vue ecosystem.
