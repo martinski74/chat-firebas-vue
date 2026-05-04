@@ -6,7 +6,7 @@ Open the app in two or more tabs (or with friends) and start chatting instantly.
 
 ## Live Demo
 
-Try it here: [firechat-vue-86f94.firebaseapp.com](https://firechat-vue-86f94.firebaseapp.com/)
+Try it here: [Demo](https://firechat-vue-86f94.firebaseapp.com/)
 
 ## Features
 
